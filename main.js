@@ -62,14 +62,10 @@ ipcMain.on('startMonitor', (evt, arg) => {
   const card = arg.card || 'wlxa0f3c12e0fa3'
   const internalCard = arg.icard || 'wlp2s0'
   //console.log(arg.name + '\n' + arg.pass + '\n' + arg.essid + '\n' + arg.card)
-  execSync('sudo systemctl stop NetworkManager.service')
-  execSync('sudo systemctl disable NetworkManager.service')
-  execSync('sudo wpa_supplicant -Dwext  -i wlp2s0 -c/etc/or.conf')
-  exec('sudo dhclient wlp2s0')
+  exec(`sudo systemctl stop NetworkManager.service && sudo systemctl disable NetworkManager.service && sudo wpa_supplicant -Dwext  -i ${internalCard} -c/etc/or.conf && sudo dhclient ${internalCard}`)
   setTimeout(() => {
-    execSync(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up`)
-    exec(`sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
-  }, 5000);
+    exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
+  }, 9000);
 })
 
 function generateNetworkConnection(name, pass) {
@@ -77,7 +73,7 @@ function generateNetworkConnection(name, pass) {
     ssid="${name}"
     psk="${pass}"
 }`;
-  fs.writeFileSync(path.join(__dirname, 'or.conf'), content, 'utf8', err => {
+  fs.writeFileSync(path.join('/etc/', 'or.conf'), content, 'utf8', err => {
       if (err) {
           return console.log(err)
       }
