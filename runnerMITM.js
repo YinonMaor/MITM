@@ -9,4 +9,4 @@ process.argv.forEach((val, index, array) => {
         name = array[index + 1];
     }
 });
-exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
+exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${name}`)
