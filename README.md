@@ -5,7 +5,8 @@ Man In The Middle Software:
 
 ## Introduction
 This project is about generating a hotspot which some random person can connect to, and by that he would be browsing when you're on the middle.  
-Activating a sniffer like `Wireshark` could demonstrate to you how packets are being transfered with through your computer.
+Activating a sniffer like `Wireshark` could demonstrate to you how packets are being transfered with through your computer.  
+This software is designed with [Electron](https://github.com/electron/electron).
 
 ## Dependencies:
 * MacOS / Linux
