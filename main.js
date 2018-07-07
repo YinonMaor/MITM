@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
-const {exec, execSync} = require('child_process')
+const {execSync, fork} = require('child_process')
 const fs = require('fs')
 const path = require('path')
 
@@ -58,12 +58,21 @@ ipcMain.on('close-me', (evt, arg) => {
 
 ipcMain.on('startMonitor', (evt, arg) => {
   generateNetworkConnection(arg.name, arg.pass)
-  console.log(arg.name + '\n' + arg.pass + '\n' + arg.essid + '\n' + arg.card)
-  //execSync(arg)
+  const card = arg.card || 'wlxa0f3c12e0fa3'
+  const internalCard = arg.internalCard || 'wlp2s0'
+  //console.log(arg.name + '\n' + arg.pass + '\n' + arg.essid + '\n' + arg.card)
+  fork('make pre')
+  setTimeout(() => {
+    execSync(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up`)
+    fork(`sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
+  }, 5000);
 })
 
 function generateNetworkConnection(name, pass) {
-  const content = JSON.stringify({name, pass});
+  const content = `network={
+    ssid="${name}"
+    psk="${pass}"
+}`;
   fs.writeFileSync(path.join(__dirname, 'or.conf'), content, 'utf8', err => {
       if (err) {
           return console.log(err)
