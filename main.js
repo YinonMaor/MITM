@@ -61,10 +61,13 @@ ipcMain.on('startMonitor', (evt, arg) => {
   const card = arg.card || 'wlxa0f3c12e0fa3'
   const internalCard = arg.icard || 'wlp2s0'
   //console.log(arg.name + '\n' + arg.pass + '\n' + arg.essid + '\n' + arg.card)
-  fork('make pre')
+  shell.exec('sudo systemctl stop NetworkManager.service')
+  shell.exec('sudo systemctl disable NetworkManager.service', {async:false})
+  shell.exec('sudo wpa_supplicant -Dwext  -i wlp2s0 -c/etc/or.conf', {async:false})
+  shell.exec('sudo dhclient wlp2s0', {async:true})
   setTimeout(() => {
-    execSync(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up`)
-    fork(`sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
+    shell.exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up`, {async:false})
+    shell.exec(`sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`, {async:true})
   }, 5000);
 })
 
