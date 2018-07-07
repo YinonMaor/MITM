@@ -5,11 +5,11 @@ const {ipcRenderer} = require('electron');
 
 const startMonitor = document.getElementById('clickButton');
 startMonitor.addEventListener('click', () => {
-    const essid = document.getElementById('text-essid').value;
-    const card = document.getElementById('text-card').value;
-    const name = document.getElementById('text-name').value;
-    const pass = document.getElementById('text-pass').value;
-    const icard = document.getElementById('text-icard').value;
+    const essid = document.getElementById('text-new-essid').value;
+    const card = document.getElementById('text-new-card').value;
+    const name = document.getElementById('text-original-name').value;
+    const pass = document.getElementById('text-original-pass').value;
+    const icard = document.getElementById('text-original-icard').value;
     ipcRenderer.send('startMonitor', {essid, card, name, pass, icard})
 });
 
