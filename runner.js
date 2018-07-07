@@ -1,5 +1,5 @@
 const {exec} = require('child_process')
-const internalCard = null;
+let internalCard = null;
 process.argv.forEach((val, index, array) => {
     if (val === '-card' && array[index + 1]) {
         internalCard = array[index + 1];
