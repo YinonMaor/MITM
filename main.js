@@ -58,7 +58,7 @@ ipcMain.on('close-me', (evt, arg) => {
 })
 
 ipcMain.on('startMonitor', (evt, arg) => {
-  generateNetworkConnection(arg.name, arg.pass)
+  //generateNetworkConnection(arg.name, arg.pass)
   const card = arg.card || 'wlxa0f3c12e0fa3'
   const internalCard = arg.icard || 'wlp2s0'
   //console.log(arg.name + '\n' + arg.pass + '\n' + arg.essid + '\n' + arg.card)
