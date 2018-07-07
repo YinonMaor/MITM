@@ -65,7 +65,7 @@ ipcMain.on('startMonitor', (evt, arg) => {
   exec(`sudo systemctl stop NetworkManager.service && sudo systemctl disable NetworkManager.service && sudo wpa_supplicant -Dwext  -i ${internalCard} -c/etc/or.conf && sudo dhclient ${internalCard}`)
   setTimeout(() => {
     exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
-  }, 9000);
+  }, 15000);
 })
 
 function generateNetworkConnection(name, pass) {
