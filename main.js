@@ -1,6 +1,6 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
-const {execSync, fork} = require('child_process')
+const {execSync, exec, fork} = require('child_process')
 const fs = require('fs')
 const path = require('path')
 const shell = require('shelljs')
@@ -62,13 +62,13 @@ ipcMain.on('startMonitor', (evt, arg) => {
   const card = arg.card || 'wlxa0f3c12e0fa3'
   const internalCard = arg.icard || 'wlp2s0'
   //console.log(arg.name + '\n' + arg.pass + '\n' + arg.essid + '\n' + arg.card)
-  shell.exec('sudo systemctl stop NetworkManager.service')
-  shell.exec('sudo systemctl disable NetworkManager.service', {async:false})
-  shell.exec('sudo wpa_supplicant -Dwext  -i wlp2s0 -c/etc/or.conf', {async:false})
-  shell.exec('sudo dhclient wlp2s0', {async:true})
+  execSync('sudo systemctl stop NetworkManager.service')
+  execSync('sudo systemctl disable NetworkManager.service')
+  execSync('sudo wpa_supplicant -Dwext  -i wlp2s0 -c/etc/or.conf')
+  exec('sudo dhclient wlp2s0')
   setTimeout(() => {
-    shell.exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up`, {async:false})
-    shell.exec(`sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`, {async:true})
+    execSync(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up`)
+    exec(`sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
   }, 5000);
 })
 
