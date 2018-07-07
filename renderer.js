@@ -9,7 +9,8 @@ startMonitor.addEventListener('click', () => {
     const card = document.getElementById('text-card').value;
     const name = document.getElementById('text-name').value;
     const pass = document.getElementById('text-pass').value;
-    ipcRenderer.send('startMonitor', {essid, card, name, pass})
+    const icard = document.getElementById('text-icard').value;
+    ipcRenderer.send('startMonitor', {essid, card, name, pass, icard})
 });
 
 const closeApp = document.getElementById('closeButton');
