@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Man In The Middle</title>
+
+  <link rel="stylesheet" href="./styles.css">
+
+  <script>delete module.exports</script>
+  <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+</head>
+
+<body>
+  <div id="container" class="container-fluid">
+    
+    <div class="header">
+      <h2 class="hash-heading">Man In The Middle Software</h2>
+    </div>
+    <h3 class="hash-heading" id="opheader">Original Network:</h3>
+    <div class="network-contents">
+      <div class="header-contents">
+        <h3 class="hash-heading">Connected Network Name:</h3>
+        <textarea rows="2" cols="1" id="text-name" class="text" maxlength="17"></textarea>
+      </div>
+      <div class="header-contents2">
+        <h3 class="hash-heading">Connected Network Pass:</h3>
+        <textarea rows="2" cols="1" id="text-pass" class="text" maxlength="17"></textarea>
+      </div>
+    </div>
+    <h3 class="hash-heading" id="opheader">MITM:</h3>
+    <div class="network-contents">
+      <div class="header-contents">
+        <h3 class="hash-heading">Network Name (ESSID):</h3>
+        <textarea rows="2" cols="1" id="text-essid" class="text" maxlength="17"></textarea>
+      </div>
+      <div class="header-contents2">
+        <h3 class="hash-heading">Network External Card:</h3>
+        <textarea rows="2" cols="1" id="text-card" class="text" maxlength="17"></textarea>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <input id="clickButton" class="startButton" type="submit" value="Start MITM" />
+    </div>
+
+    <div class="buttons">
+        <input id="closeButton" class="startButton" type="submit" value="Exit" />
+    </div>
+
+    <div class="footer">
+      <h4 class="hash-heading">Yinon Cohen, Or Azulay</h4>
+    </div>
+
+  </div>
+
+</body>
+<script src="./renderer.js" charset="utf-8"></script>
+
+</html>

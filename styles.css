@@ -1,0 +1,79 @@
+html, body, .container-fluid {
+    background-color: #D6D8DC;
+  }
+
+  .header {
+      width: 100%;
+  }
+  
+  .header-contents {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .header-contents2 {
+    display: flex;
+    flex-direction: row;
+    margin-top: -22px;
+  }
+
+  #text-card, #text-pass {
+    margin-left: 9px;
+  }
+
+  #opheader {
+    margin-bottom: -15px;
+    font-size: 24px;
+  }
+
+  .text {
+    font-size: 15px;
+    width: 170px;
+    height: 18px;
+    margin-top: 14px;
+    margin-right: 10px;
+  }
+
+  #clickButton, #closeButton {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 6px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+  }
+
+  #clickButton:hover {
+    background-color: #21233a;
+  }
+
+  #clickButton:focus {
+    outline:0;
+  }
+  
+  .hash-output {
+    color: #575B5E;
+    font-size: 16px;
+    letter-spacing: 2px;
+    white-space: pre-wrap;
+  }
+  
+  .hash-heading {
+    color: #575B5E;
+    font-weight: normal;
+    margin-right: 5px;
+  }
+
+  .footer {
+      width: 100%;
+      text-align: right;
+  }
+
+  .buttons {
+    margin-top: 10px;
+  }
