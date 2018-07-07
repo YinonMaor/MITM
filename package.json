@@ -1,23 +1,15 @@
 {
-  "name": "electron-quick-start",
+  "name": "MITM",
   "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "description": "A Simple Man In The Middle Software",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "clean": "rm -rf or.conf"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
-  "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
-  ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
-  "devDependencies": {
+  "repository": "https://github.com/YinonMaor/MITM",
+  "author": "Yinon and OR",
+  "dependencies": {
     "electron": "^2.0.0"
   }
 }
