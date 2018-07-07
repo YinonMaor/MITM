@@ -1,0 +1,13 @@
+### Operating systems: ###
+.DS_Store
+
+
+### Regular dev: ###
+.idea
+node_modules/
+yarn.lock
+package-lock.json
+
+
+### Unique network connection: ###
+or.conf
