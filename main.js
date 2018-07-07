@@ -63,7 +63,7 @@ ipcMain.on('startMonitor', (evt, arg) => {
   const internalCard = arg.icard || 'wlp2s0'
   fork(path.join(__dirname, 'runner'), ['-card', internalCard])
   setTimeout(() => {
-    exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python evil_twin.py -c 6 -u ${card} -i ${internalCard} -s ${arg.name}`)
+    fork(path.join(__dirname, 'runnerMITM'), ['-card', card, '-internalCard', internalCard, '-name', arg.name])
   }, 18000);
 })
 
