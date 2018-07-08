@@ -58,7 +58,7 @@ ipcMain.on('close-me', (evt, arg) => {
 })
 
 ipcMain.on('startMonitor', (evt, arg) => {
-  //generateNetworkConnection(arg.name, arg.pass)
+  generateNetworkConnection(arg.essid, arg.pass)
   const card = arg.card || 'wlxa0f3c12e0fa3'
   const internalCard = arg.icard || 'wlp2s0'
   fork(path.join(__dirname, 'runner'), ['-card', internalCard])
@@ -67,12 +67,12 @@ ipcMain.on('startMonitor', (evt, arg) => {
   }, 18000);
 })
 
-function generateNetworkConnection(name, pass) {
+function generateNetworkConnection(essid, pass) {
   const content = `network={
-    ssid="${name}"
+    ssid="${essid}"
     psk="${pass}"
 }`;
-  fs.writeFileSync(path.join('/etc/', 'or.conf'), content, 'utf8', err => {
+  fs.writeFileSync(path.join('/etc', 'or.conf'), content, 'utf8', err => {
       if (err) {
           return console.log(err)
       }
