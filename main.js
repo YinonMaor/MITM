@@ -60,9 +60,10 @@ ipcMain.on('close-me', (evt, arg) => {
 ipcMain.on('startMonitor', (evt, arg) => {
   generateNetworkConnection(arg.essid, arg.pass)
   const card = arg.card || 'wlxa0f3c12e0fa3'
-  const internalCard = arg.icard || 'wlp2s0'
+  const internalCard = arg.icard || 'wlp3s0f0'
   fork(path.join(__dirname, 'runner'), ['-card', internalCard])
   setTimeout(() => {
+    console.log('forked')
     fork(path.join(__dirname, 'runnerMITM'), ['-card', card, '-internalCard', internalCard, '-name', arg.name])
   }, 18000);
 })

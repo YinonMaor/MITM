@@ -6,11 +6,13 @@ Man In The Middle Software:
 ## Introduction
 This project is about generating a hotspot which some random person can connect to, and by that he would be browsing when you're on the middle.  
 Activating a sniffer like `Wireshark` could demonstrate to you how packets are being transfered with through your computer.  
-This software is designed with [Electron](https://github.com/electron/electron).
+This software is designed with [Electron](https://github.com/electron/electron).  
+This project is inspired from `evil_twin` software from [here](http://solstice.sh/python/wireless/2015/11/01/python-evil-twin/).
 
 ## Dependencies:
-* MacOS / Linux
+* Ubuntu
 * Node.js ^8.7.0
+* Python ^2.7.0
 * External network card
 * Git
 
@@ -31,10 +33,22 @@ This software is designed with [Electron](https://github.com/electron/electron).
     ```
     $ yarn
     ```
-4. Run the software by:
+4. Go to another directory, and run:
+    ```
+    git clone https://github.com/singe/sslstrip2.git
+    cd sslstrip2
+    sudo python setup.py install
+    ```
+5. Download hostapd from [here](https://pkgs.org/download/hostapd) (Also on MITM/Installations). Install it (recommended with ubuntu software center). Make sure that /etc/hostapd/hostapd.conf file is existed. If not, just create it and it would be configured during run.
+6. Download dnsmasq from [here](https://linux.softpedia.com/get/Internet/DNS/?utm_source=spd&utm_campaign=postdl_redir) (Also on MITM/Installations). Install it (recommended with ubuntu software center).
+7. From `MITM` directory, run the software by:
     ```
     $ npm start
     ```
-5. Insert your real network connection by name and password.
-6. Insrty your desired ESSID (network name) to be in the middle, and your external card's name.
-7. Click `Start MITM` button.
+8. Insert your real network connection by name and password.
+9. Insrty your desired ESSID (network name) to be in the middle, and your external card's name.
+10. Click `Start MITM` button.
+11. After you are finished, you might want to return your network service:
+    ```
+    service network-manager restart
+    ```

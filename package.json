@@ -10,7 +10,6 @@
   "repository": "https://github.com/YinonMaor/MITM",
   "author": "Yinon and OR",
   "dependencies": {
-    "electron": "^2.0.0",
-    "shelljs": "^0.8.2"
+    "electron": "^2.0.0"
   }
 }
