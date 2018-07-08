@@ -35,9 +35,9 @@ This project is inspired from `evil_twin` software from [here](http://solstice.s
     ```
 4. Go to another directory, and run:
     ```
-    git clone https://github.com/singe/sslstrip2.git
-    cd sslstrip2
-    sudo python setup.py install
+    $ git clone https://github.com/singe/sslstrip2.git
+    $ cd sslstrip2
+    $ sudo python setup.py install
     ```
 5. Download hostapd from [here](https://pkgs.org/download/hostapd) (Also on MITM/Installations). Install it (recommended with ubuntu software center). Make sure that /etc/hostapd/hostapd.conf file is existed. If not, just create it and it would be configured during run.
 6. Download dnsmasq from [here](https://linux.softpedia.com/get/Internet/DNS/?utm_source=spd&utm_campaign=postdl_redir) (Also on MITM/Installations). Install it (recommended with ubuntu software center).
