@@ -1,5 +1,5 @@
-all: modeManaged start
-pre: disableNetwork loginNetwork dhclient
+all: dhclient modeManaged start
+pre: disableNetwork loginNetwork
 disableNetwork:
 	sudo systemctl stop NetworkManager.service
 	sudo systemctl disable NetworkManager.service
