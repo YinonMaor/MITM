@@ -3,7 +3,6 @@ const {app, BrowserWindow} = require('electron')
 const {execSync, exec, fork} = require('child_process')
 const fs = require('fs')
 const path = require('path')
-const shell = require('shelljs')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
