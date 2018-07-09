@@ -10,6 +10,6 @@ modeManaged:
 	sudo iwconfig wlxa0f3c12e0fa3 mode managed
 	sudo ifconfig wlxa0f3c12e0fa3 up
 start:
-	sudo python mitm.py -c 6 -u wlxa0f3c12e0fa3 -i wlp3s0f0 -s my_essid
+	sudo python honey.py -c 6 -u wlxa0f3c12e0fa3 -i wlp3s0f0 -s my_essid
 dhclient:
 	sudo dhclient wlp3s0f0

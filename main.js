@@ -64,7 +64,7 @@ ipcMain.on('startMonitor', (evt, arg) => {
   fork(path.join(__dirname, 'runner'), ['-card', internalCard])
   setTimeout(() => {
     console.log('forked')
-    fork(path.join(__dirname, 'runnerMITM'), ['-card', card, '-internalCard', internalCard, '-name', arg.name])
+    fork(path.join(__dirname, 'runnerHoney'), ['-card', card, '-internalCard', internalCard, '-name', arg.name])
   }, 18000);
 })
 

@@ -1,13 +1,13 @@
 {
-  "name": "MITM",
+  "name": "Honey Pot",
   "version": "1.0.0",
-  "description": "A Simple Man In The Middle Software",
+  "description": "A Simple Honey Pot Software",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
     "clean": "rm -rf or.conf"
   },
-  "repository": "https://github.com/YinonMaor/MITM",
+  "repository": "https://github.com/yinonc/HoneyPot",
   "author": "Yinon and OR",
   "dependencies": {
     "electron": "^2.0.0"
