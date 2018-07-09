@@ -1,4 +1,4 @@
-Man In The Middle Software:
+Honey Pot Software:
 1. [Introduction](#introduction)  
 2. [Dependencies:](#dependencies)  
 3. [Installation:](#installation)  
@@ -19,11 +19,11 @@ This project is inspired from `evil_twin` software from [here](http://solstice.s
 ## Installation:
 1. Clone the repository:  
     ```
-    $ git clone https://github.com/YinonMaor/MITM.git
+    $ git clone https://github.com/yinonc/HoneyPot
     ```
 2. Enter the project's directory:
     ```
-    $ cd MITM
+    $ cd HoneyPot
     ```
 3. Install dependent packages:
     ```
@@ -39,16 +39,16 @@ This project is inspired from `evil_twin` software from [here](http://solstice.s
     $ cd sslstrip2
     $ sudo python setup.py install
     ```
-5. Download hostapd from [here](https://pkgs.org/download/hostapd) (Also on MITM/Installations). Install it (recommended with ubuntu software center). Make sure that /etc/hostapd/hostapd.conf file is existed. If not, just create it and it would be configured during run.
-6. Download dnsmasq from [here](https://linux.softpedia.com/get/Internet/DNS/?utm_source=spd&utm_campaign=postdl_redir) (Also on MITM/Installations). Install it (recommended with ubuntu software center).
-7. Run `MITM` software with root permissions:
+5. Download hostapd from [here](https://pkgs.org/download/hostapd) (Also on HoneyPot/Installations). Install it (recommended with ubuntu software center). Make sure that /etc/hostapd/hostapd.conf file is existed. If not, just create it and it would be configured during run.
+6. Download dnsmasq from [here](https://linux.softpedia.com/get/Internet/DNS/?utm_source=spd&utm_campaign=postdl_redir) (Also on HoneyPot/Installations). Install it (recommended with ubuntu software center).
+7. Run `Honey Pot` software with root permissions:
     ```
     $ sudo -s
     $ npm start
     ```
 8. Insert your real network connection by name and password.
 9. Insrty your desired ESSID (network name) to be in the middle, and your external card's name.
-10. Click `Start MITM` button.
+10. Click `Start Honey Pot` button.
 11. After you are finished, you might want to return your network service:
     ```
     service network-manager restart
