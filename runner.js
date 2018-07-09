@@ -5,4 +5,4 @@ process.argv.forEach((val, index, array) => {
         internalCard = array[index + 1];
     }
 });
-exec(`sudo systemctl stop NetworkManager.service && sudo systemctl disable NetworkManager.service && sudo wpa_supplicant -Dwext  -i ${internalCard} -c/etc/or.conf && sudo dhclient ${internalCard}`)
+exec(`sudo systemctl stop NetworkManager.service && sudo systemctl disable NetworkManager.service && sudo wpa_supplicant -Dwext  -i ${internalCard} -c/etc/or.conf`)

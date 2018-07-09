@@ -9,4 +9,4 @@ process.argv.forEach((val, index, array) => {
         name = array[index + 1];
     }
 });
-exec(`sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python mitm.py -c 6 -u ${card} -i ${internalCard} -s ${name}`)
+exec(`sudo dhclient ${internalCard} && sudo ifconfig ${card} down && sudo iwconfig ${card} mode managed && sudo ifconfig ${card} up && sudo python mitm.py -c 6 -u ${card} -i ${internalCard} -s ${name}`)
