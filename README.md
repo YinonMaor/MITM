@@ -41,8 +41,9 @@ This project is inspired from `evil_twin` software from [here](http://solstice.s
     ```
 5. Download hostapd from [here](https://pkgs.org/download/hostapd) (Also on MITM/Installations). Install it (recommended with ubuntu software center). Make sure that /etc/hostapd/hostapd.conf file is existed. If not, just create it and it would be configured during run.
 6. Download dnsmasq from [here](https://linux.softpedia.com/get/Internet/DNS/?utm_source=spd&utm_campaign=postdl_redir) (Also on MITM/Installations). Install it (recommended with ubuntu software center).
-7. From `MITM` directory, run the software by:
+7. Run `MITM` software with root permissions:
     ```
+    $ sudo -s
     $ npm start
     ```
 8. Insert your real network connection by name and password.
